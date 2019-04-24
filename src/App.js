@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { Router, Route, browserHistory } from 'react-router';
 
 import Header from './components/Header';
 import Main from './components/Main';
+import 'semantic-ui-css/semantic.min.css';
 
 class App extends Component {
   render() {
+    let style = {height:'100%', maxWidth:'80%', verticalAlign:'middle', marginLeft:'10%', marginRight:'10%', marginTop:'1%'}
     return (
-      <div>
+      <div style={style} >
         <Header />
         <Main />
       </div>

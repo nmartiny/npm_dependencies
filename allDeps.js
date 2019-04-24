@@ -16,14 +16,14 @@ const walkSync = function (dir, filelist) {
   return filelist
 }
 
-const getAllDependencies = () => {
+let getAllDependencies = () => {
   const allPackages = walkSync(NODE_MODULES, [])
   let depsTree = []
   let auxDepsTreeObj = {}
   let npmModule
 
-  allPackages.forEach(package => {
-    npmModule = fs.readFileSync(package)
+  allPackages.forEach(pkg => {
+    npmModule = fs.readFileSync(pkg)
     npmModule = JSON.parse(npmModule)
     auxDepsTreeObj.name = npmModule.name
     auxDepsTreeObj.version = npmModule.version
@@ -34,4 +34,4 @@ const getAllDependencies = () => {
   return depsTree
 }
 
-exports.module = {getAllDependencies}
+module.exports = {getAllDependencies}
